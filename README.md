@@ -21,6 +21,4 @@
 
 </div>
 
-
-
-
+Sentinel is a binary debugging engine designed for AI agents and intelligent scenarios. It encapsulates the complete process debugging capability as an HTTP+JSON standardized interface, allowing agents to directly drive reverse analysis, vulnerability mining, malicious sample analysis, data tracing, and other reverse tasks like calling a regular API, maximizing the speed of security experts.
