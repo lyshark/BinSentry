@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+BinSentry/__init__.py
+BinSentry.egg-info/PKG-INFO
+BinSentry.egg-info/SOURCES.txt
+BinSentry.egg-info/dependency_links.txt
+BinSentry.egg-info/top_level.txt

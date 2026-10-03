@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: BinSentry
+Version: 1.0.3
+Home-page: http://sentry.lyshark.com
+Author: lyshark
+Author-email: me@lyshark.com
+License: MIT Licence
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: platform
+Dynamic: requires-python
+
+Binary sentry is a dynamic disassembly debugging engine designed for the Windows platform, driven by Python and developed by the founder of LYSHARK.
+
+Copyright (c) 2009-2026 LyShark <me@lyshark.com>
+
+All rights reserved.
+
+For detailed copyright information see the file COPYING in the root of the distribution archive.
