@@ -28,7 +28,15 @@ Sentinel is a binary debugging engine designed for AI agents and intelligent sce
 Users may install the corresponding debugging engine toolkit via pip:
 
 ```python
-pip install binsentry
+CMD> pip install binsentry
+CMD> pip show binsentry
+Name: BinSentry
+Version: 1.0.3
+Summary:
+Home-page: http://sentry.lyshark.com
+Author: lyshark
+Author-email: me@lyshark.com
+License: MIT Licence
 ```
 
 The following Python snippet demonstrates basic API invocation to connect to the local BinSentry service, create a debug session for a target Windows executable, and start execution control.
@@ -56,5 +64,47 @@ if __name__ == "__main__":
     print(dbg)
 
     # Launch target program and start debugging session
+    client.run()
+```
+
+Continue testing the call scenario of the disassembly module interface, and you can directly use the following code to retrieve the data.
+
+```python
+from BinSentry import *
+import json
+
+if __name__ == "__main__":
+    config = Config(
+        address="127.0.0.1",
+        port=6891,
+        api_key="45d3552b12b12cdf2c831344311cf81e"
+    )
+    client = BinSentryClient(config=config)
+    try:
+        client.detach()
+    except Exception:
+        pass
+
+    raw_dbg_resp = client.debug("c://win32.exe", "", "c://")
+
+    # SDK returns the original JSON string
+    dbg = json.loads(raw_dbg_resp)
+    print("Debug session:", dbg)
+
+    if dbg["status"] != "success":
+        print("Create debug session failed:", dbg["result"]["message"])
+        exit(-1)
+
+    # Read register values
+    raw_reg_resp = client.register()
+    resp = json.loads(raw_reg_resp)
+    eip_hex = resp["result"]["registers"]["eipHex"]
+    print(f"EIP hex = {eip_hex}")
+
+    # EIP disassembly
+    raw_disasm_resp = client.dissasembler(address=eip_hex,count=5)
+    print("Disassemble response: ", raw_disasm_resp)
+
+    # Subsequent resumption of operation
     client.run()
 ```
